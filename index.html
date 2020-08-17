@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container {
+            width:500px;
+            height: 400px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='container'></canvas>
+    <h1 id='score'>0</h1>
+    <button onclick='start()'>start</button>
+    <script src='./bird.js'></script>
+    <script>
+        var point = document.getElementById('score');
+        var game = new Game({
+            target: document.getElementById('container'),
+            width: 800,
+            height: 500,
+            speed: 6,
+            start(){
+                console.log('start');
+            },
+            stop(score){
+                alert('game over your score is:' + score);
+            },
+            scoreChange(score){
+                point.innerHTML = score;
+            }
+        })
+        function start() {
+            game.start();
+        }
+    </script>
+</body>
+
+</html>
